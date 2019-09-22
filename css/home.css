@@ -1,25 +1,29 @@
-.carousel {
-    margin-left: 15%;
-    margin-right: 15%;
+
+body{
+    margin: 0;
 }
 
-ul.slides {
+@keyframes fade {
+    0% {opacity:0;}
+    5% {opacity:1;}
+    25% {opacity:1;}
+    30% {opacity:0;}
+    100% {opacity:0;}
+}
+
+.slides {
     display: block;
     position: relative;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     list-style: none;
 }
 
 .slides * {
     user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
 }
 
 ul.slides input {
@@ -49,81 +53,92 @@ ul.slides input {
 
 .carousel-controls {
     position: absolute;
-    top: 0;
+    top: calc(50% - 30px);
     left: 0;
     right: 0;
     z-index: 999;
-    font-size: 100px;
-    line-height: 600px;
+    /* font-size: 100px;
+    line-height: 600px; */
     color: #fff;
 }
 
 .carousel-controls label {
     display: none;
     position: absolute;
-    padding: 0 20px;
-    opacity: 0;
-    transition: opacity .2s;
+    padding: 0;
+    transition: padding .2s;
     cursor: pointer;
 }
 
-.slide-image:hover + .carousel-controls label{
-    opacity: 0.5;
-}
-
-.carousel-controls label:hover {
-    opacity: 1;
-}
-
 .carousel-controls .prev-slide {
-    width: 49%;
+    /* width: 49%; */
     text-align: left;
+    padding: 0 20px;
+    margin-left: 100px;
     left: 0;
+}
+
+.carousel-controls .prev-slide:hover {
+    padding: 0 30px;
 }
 
 .carousel-controls .next-slide {
-    width: 49%;
+    /* width: 49%; */
     text-align: right;
+    padding : 0 20px;
+    margin-right : 100px;
     right: 0;
 }
 
-.carousel-dots {
+.carousel-controls .next-slide:hover {
+    padding: 0 30px;
+}
+
+.carousel-dot-group {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 20px;
+    bottom: 10px;
     z-index: 999;
     text-align: center;
 }
 
-.carousel-dots .carousel-dot {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #fff;
-    opacity: 0.5;
-    margin: 10px;
+.carousel-dot-group .carousel-dot{
+    display: none;
 }
 
-input:checked + .slide-container .slide-image {
-    opacity: 1;
+input:checked ~ .carousel-dot-group .carousel-dot {
+    display: inline-block;
+    width: 20px;
+    height: 5px;
+    background-color: #fff;
+    opacity: 0.5;
+    margin-right: 1px;
+}
+
+.slide-container > input:checked + .slide-image {
+    opacity: 1; /*투명해제*/
     transform: scale(1);
     transition: opacity 1s ease-in-out;
 }
 
-input:checked + .slide-container .carousel-controls label {
-     display: block; 
-}
-
-input#img-1:checked ~ .carousel-dots label#img-dot-1,
-input#img-2:checked ~ .carousel-dots label#img-dot-2,
-input#img-3:checked ~ .carousel-dots label#img-dot-3,
-input#img-4:checked ~ .carousel-dots label#img-dot-4,
-input#img-5:checked ~ .carousel-dots label#img-dot-5,
-input#img-6:checked ~ .carousel-dots label#img-dot-6 {
-	opacity: 1;
+.slide-container > input:checked + .carousel-controls label {
+    display: block; 
 }
 
 
-input:checked + .slide-container .nav label { display: block; }
+#img-1:checked ~ .carousel-dot-group .img-dot-1,
+#img-2:checked ~ .carousel-dot-group .img-dot-2,
+#img-3:checked ~ .carousel-dot-group .img-dot-3,
+#img-4:checked ~ .carousel-dot-group .img-dot-4,
+#img-5:checked ~ .carousel-dot-group .img-dot-5,
+#img-6:checked ~ .carousel-dot-group .img-dot-6,
+#img-7:checked ~ .carousel-dot-group .img-dot-7{
+    width: 30px;
+	background-color: black;
+}
+
+
+.slide-container > input:checked ~ .carousel-controls label { 
+    display: block; 
+}
