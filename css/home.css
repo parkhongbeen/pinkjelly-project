@@ -33,23 +33,34 @@ a{
 
 html{
   font-size: 10px;
+  margin: 0;
+}
+
+.header, .visual-top, .visual-bottom, .main-contents{
+    width: 100vw;
+    margin: 0;
+}
+
+.insta-id, .footer{
+    width: 100vw;
+    margin: 0 auto;
 }
 
 body{
-  /* font-size: 1.4rem; */
   margin: 0;
   color: #181818;
   font-family: 'Spoqa Han Sans', 'Sans-serif';
   font-weight: 500;
+  /* overflow-x:hidden; */
 }
 
 .header{
     position:fixed;
     top:0;
     left:0;
+    margin : 0;
     z-index: 1000;
     width: 100%;
-    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,8 +68,6 @@ body{
     font-size: 13px;
     background: rgba(#fff, #fff, #fff, 0);
 }
-
-
 
 .header h1{
     margin: 0;
@@ -79,45 +88,95 @@ body{
     align-items: center;
 }
 
-.sub-menu a{
-    padding: 5px 30px;
+.sub-menu > a{
+    padding: 25px 30px;
+    transition: color .2s 0s;
+}
+
+.sub-menu a:hover{
+    color: gray;
 }
 
 .navigation-menu ul{
     list-style: none;
     margin: 0;
     padding: 0;
-    display: none;
+    height: 0;
+    overflow: hidden;
+    /* display: none; */
 }
+
 /* 드롭다운 */
-.dropdown-menu3 a::before{
+.dropdown-menu3 > a::before{
     content: '\e805';
     font-family: "fontello";
-    padding:5px;
+    padding: 5px;
 }
 
-.dropdown-menu3 a::after, .dropdown-menu2 a::after, .dropdown-menu1 a::after{
+.dropdown-menu3 > a::after, .dropdown-menu2 > a::after, .dropdown-menu1 > a::after{
     content: '\f107';
     font-family: "fontello";
-    padding:5px;
+    padding: 5px;
 }
 
-.dropdown-menu1 , .dropdown-menu2 , .dropdown-menu3{
-    transition: height 3s 0s;
-    background: lime;
-}
- 
-.dropdown-menu1:hover, .dropdown-menu1:focus, .dropdown-menu2:hover, .dropdown-menu2:focus{
-    padding: 30px 0 2px 1em;
-    height: 170px;
-    background: yellow;
+.dropdown-menu1, .dropdown-menu2, .dropdown-menu3{
+    position: relative;
 }
 
-.dropdown-menu3:hover, .dropdown-menu3:focus{
-    height: 170px;
+.dropdown-menu1:hover ul{
+    transition: height .2s linear;
+    height: 130px;
+    text-align: center;
+    line-height: 2.5rem;
+    position: absolute;
+    margin-top: -5px;
+    padding : 15px 21px;
+    top: 40px;
+    opacity: 0.8;
     color: white;
-    background: #181818;
+    background: black;
+}
 
+.dropdown-menu2:hover ul{
+    transition: height .2s linear;
+    position: absolute;
+    height: 130px;
+    width: 160px;
+    text-align: center;
+    line-height: 2.5rem;
+    margin-top: -5px;
+    padding : 15px 0;
+    top: 40px;
+    opacity: 0.8;
+    color: white;
+    background: black;
+}
+
+.dropdown-menu3:hover ul{
+    transition: height .2s linear;
+    height: 150px;
+    text-align: center;
+    line-height: 2.5rem;
+    position: absolute;
+    margin-top: -5px;
+    padding : 15px 15px;
+    top: 40px;
+    opacity: 0.8;
+    color: white;
+    background: black ;
+}
+
+.dropdown-menu1 ul li a, .dropdown-menu3 ul li a{
+    padding: 0 30px;
+    transition: color .2s 0s;
+}
+
+.dropdown-menu2 ul li a{
+    transition: color .2s 0s;
+}
+
+.dropdown-menu1 ul li a:hover, .dropdown-menu2 ul li a:hover, .dropdown-menu3 ul li a:hover{
+   color: pink;
 }
 
 .basket a::before{
@@ -134,43 +193,34 @@ body{
     padding: 5px 20px 5px 0;    
 }
 
-/* .basket span{
-    display: block;
-    width: 10px;
-    height: 10px;
-    text-indent: 20px;
-    overflow: hidden;
-} */
-
 .scroll{
     /* top bottom toggle */
     display: none;
 }
 
-.slides {
+.slides{
     display: block;
     position: relative;
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
-    /* overflow: hidden; */
     list-style: none;
 }
 
-.slides * {
+.slides *{
     user-select: none;
 }
 
-ul.slides input {
+.slides input{
     display: none; 
 }
 
-.slide-container { 
+.slide-container{ 
     display: block; 
 }
 
-.slide-image {
+.slide-image{
     display: block;
     position: absolute;
     width: 100%;
@@ -180,13 +230,14 @@ ul.slides input {
     transition: all .7s ease-in-out;
 }   
 
-.slide-image img {
-    width: auto;
-    min-width: 100%;
+.slide-image img{
+    width: 100vw;
+    margin: 0;
+    /* min-width: 100%; */
     height: 100%;
 }
 
-.carousel-controls {
+.carousel-controls{
     position: absolute;
     top: calc(50% - 30px);
     left: 0;
@@ -195,7 +246,7 @@ ul.slides input {
     color: #fff;
 }
 
-.carousel-controls label {
+.carousel-controls label{
     display: none;
     position: absolute;
     padding: 0;
@@ -203,29 +254,29 @@ ul.slides input {
     cursor: pointer;
 }
 
-.carousel-controls .prev-slide {
+.carousel-controls .prev-slide{
     text-align: left;
     padding: 0 20px;
     margin-left: 100px;
     left: 0;
 }
 
-.carousel-controls .prev-slide:hover {
+.carousel-controls .prev-slide:hover{
     padding: 0 30px;
 }
 
-.carousel-controls .next-slide {
+.carousel-controls .next-slide{
     text-align: right;
     padding : 0 20px;
     margin-right : 100px;
     right: 0;
 }
 
-.carousel-controls .next-slide:hover {
+.carousel-controls .next-slide:hover{
     padding: 0 30px;
 }
 
-.carousel-dot-group {
+.carousel-dot-group{
     position: absolute;
     left: 0;
     right: 0;
@@ -238,7 +289,7 @@ ul.slides input {
     display: none;
 }
 
-input:checked ~ .carousel-dot-group .carousel-dot {
+input:checked ~ .carousel-dot-group .carousel-dot{
     display: inline-block;
     width: 20px;
     height: 5px;
@@ -247,13 +298,13 @@ input:checked ~ .carousel-dot-group .carousel-dot {
     margin-right: 1px;
 }
 
-.slide-container > input:checked + .slide-image {
+.slide-container > input:checked + .slide-image{
     opacity: 1; /*투명해제*/
     transform: scale(1);
     transition: opacity 1s ease-in-out;
 }
 
-.slide-container > input:checked + .carousel-controls label {
+.slide-container > input:checked + .carousel-controls label{
     display: block; 
 }
 
@@ -268,11 +319,10 @@ input:checked ~ .carousel-dot-group .carousel-dot {
 	background-color: black;
 }
 
-
-.slide-container > input:checked ~ .carousel-controls label { 
-    display: block; 
-    
+.slide-container > input:checked ~ .carousel-controls label{ 
+    display: block;     
 }
+
 .visual-bottom{
     /* background: url(./images/bg_flower.png) no-repeat 50% 0 fixed,
     #ccc linear-gradient(#ccc, #eee, #fff) repeat 0 0 fixed; */  
