@@ -14,7 +14,7 @@ a{
 }
 
 /* 숨김 콘텐츠 */
-.a11y-hidden, legend{
+.a11y-hidden{
   position: absolute;
   width: 1px;
   height: 1px;
@@ -36,7 +36,6 @@ html{
 }
 
 body{
-  position: relative;
   /* font-size: 1.4rem; */
   margin: 0;
   color: #181818;
@@ -54,10 +53,12 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 55px;
+    padding: 25px 35px 25px 55px;
     font-size: 13px;
     background: rgba(#fff, #fff, #fff, 0);
 }
+
+
 
 .header h1{
     margin: 0;
@@ -69,6 +70,7 @@ body{
     width: 80%;
     min-width: 80%;
 }
+
 .navigation-menu{
     list-style: none;
     margin: 0;
@@ -77,22 +79,8 @@ body{
     align-items: center;
 }
 
-/* .dropdown-menu1::after, .dropdown-menu2::after, .dropdown-menu3::after{
-    content: '\f107';
-
-} */
-.sub-menu:nth-child(1) a, .sub-menu:nth-child(2) a, .sub-menu:nth-child(4) a {
-    padding-right: 30px;
-    /* margin-left: 50px; */
-    /* padding: 0 30px; */
-    /* flex-basis: 200px; */
-}
 .sub-menu a{
-    padding-left: 30px;
-}
-
-.dropdown-menu3 a{
-    padding : 0 10px;
+    padding: 5px 30px;
 }
 
 .navigation-menu ul{
@@ -101,19 +89,49 @@ body{
     padding: 0;
     display: none;
 }
-.Ficon-angle-down::before{
-    margin: 0;
-    padding: 3px;
+/* 드롭다운 */
+.dropdown-menu3 a::before{
+    content: '\e805';
+    font-family: "fontello";
+    padding:5px;
 }
-.basket::before{
-    margin: 0;
-    padding-left: 30px;
+
+.dropdown-menu3 a::after, .dropdown-menu2 a::after, .dropdown-menu1 a::after{
+    content: '\f107';
+    font-family: "fontello";
+    padding:5px;
 }
-.basket{
+
+.dropdown-menu1 , .dropdown-menu2 , .dropdown-menu3{
+    transition: height 3s 0s;
+    background: lime;
+}
+ 
+.dropdown-menu1:hover, .dropdown-menu1:focus, .dropdown-menu2:hover, .dropdown-menu2:focus{
+    padding: 30px 0 2px 1em;
+    height: 170px;
+    background: yellow;
+}
+
+.dropdown-menu3:hover, .dropdown-menu3:focus{
+    height: 170px;
+    color: white;
+    background: #181818;
+
+}
+
+.basket a::before{
+    margin: 0;
+    padding-left: 25px;
+    content: '\f290';
+    font-family: "fontello";
+}
+
+.basket a{
     width: 10px;
     height: 10px;
     margin-top: -8px;
-    padding-right: 55px;
+    padding: 5px 20px 5px 0;    
 }
 
 /* .basket span{
@@ -147,7 +165,6 @@ body{
 ul.slides input {
     display: none; 
 }
-
 
 .slide-container { 
     display: block; 
