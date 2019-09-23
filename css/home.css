@@ -1,3 +1,133 @@
+@charset "utf-8";
+@import url('https://necolas.github.io/normalize.css/latest/normalize.css');
+@import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
+@import url('./fontello/css/fontello.css');
+
+/* 초기화 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 숨김 콘텐츠 */
+.a11y-hidden, legend{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* clearfix - float 이슈를 해결하기 위한 선언 */
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+html{
+  font-size: 10px;
+}
+
+body{
+  position: relative;
+  /* font-size: 1.4rem; */
+  margin: 0;
+  color: #181818;
+  font-family: 'Spoqa Han Sans', 'Sans-serif';
+  font-weight: 500;
+}
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 1000;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 55px;
+    font-size: 13px;
+    background: rgba(#fff, #fff, #fff, 0);
+}
+
+.header h1{
+    margin: 0;
+    min-width: 20%;
+}
+
+.navigation{
+    margin: 0;
+    width: 80%;
+    min-width: 80%;
+}
+.navigation-menu{
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* .dropdown-menu1::after, .dropdown-menu2::after, .dropdown-menu3::after{
+    content: '\f107';
+
+} */
+.sub-menu:nth-child(1) a, .sub-menu:nth-child(2) a, .sub-menu:nth-child(4) a {
+    padding-right: 30px;
+    /* margin-left: 50px; */
+    /* padding: 0 30px; */
+    /* flex-basis: 200px; */
+}
+.sub-menu a{
+    padding-left: 30px;
+}
+
+.dropdown-menu3 a{
+    padding : 0 10px;
+}
+
+.navigation-menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+.Ficon-angle-down::before{
+    margin: 0;
+    padding: 3px;
+}
+.basket::before{
+    margin: 0;
+    padding-left: 30px;
+}
+.basket{
+    width: 10px;
+    height: 10px;
+    margin-top: -8px;
+    padding-right: 55px;
+}
+
+/* .basket span{
+    display: block;
+    width: 10px;
+    height: 10px;
+    text-indent: 20px;
+    overflow: hidden;
+} */
+
+.scroll{
+    /* top bottom toggle */
+    display: none;
+}
 
 .slides {
     display: block;
@@ -124,11 +254,9 @@ input:checked ~ .carousel-dot-group .carousel-dot {
 
 .slide-container > input:checked ~ .carousel-controls label { 
     display: block; 
+    
 }
-
-
 .visual-bottom{
-/* 
-    background: url(./images/bg_flower.png) no-repeat 50% 0 fixed,
-    #eee linear-gradient(#ccc,#eee,#fff) repeat 0 0 fixed; */
+    /* background: url(./images/bg_flower.png) no-repeat 50% 0 fixed,
+    #ccc linear-gradient(#ccc, #eee, #fff) repeat 0 0 fixed; */  
 }
