@@ -11,7 +11,7 @@
 a{
   text-decoration: none;
   color: inherit;
-}
+}   
 
 /* 숨김 콘텐츠 */
 .a11y-hidden{
@@ -105,19 +105,25 @@ body{
 .dropdown-menu1 , .dropdown-menu2 , .dropdown-menu3{
     transition: height 3s 0s;
     background: lime;
+  
 }
  
-.dropdown-menu1:hover, .dropdown-menu1:focus, .dropdown-menu2:hover, .dropdown-menu2:focus{
+.dropdown-menu1:hover ul, .dropdown-menu1:focus ul, .dropdown-menu2:hover ul, .dropdown-menu2:focus ul{
     padding: 30px 0 2px 1em;
     height: 170px;
     background: yellow;
+    color: white;
+}
+.navigation-menu{
+    position: relative;
 }
 
 .dropdown-menu3:hover, .dropdown-menu3:focus{
     height: 170px;
     color: white;
     background: #181818;
-
+    position: absolute;
+    top: 0;
 }
 
 .basket a::before{
@@ -154,8 +160,9 @@ body{
     height: 100vh;
     margin: 0;
     padding: 0;
-    /* overflow: hidden; */
-    list-style: none;
+    height: 0;
+    overflow: hidden;
+    /* list-style: none; */
 }
 
 .slides * {
